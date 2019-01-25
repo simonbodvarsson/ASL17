@@ -1,0 +1,2 @@
+time,get,multiget,set,avgThroughput,avgQueueLength,avgWaitingTime,avgGetServiceTime,avgSetServiceTime,avgMultigetServiceTime
+0.0,0,0,1,0,0,106,0,251,0,
