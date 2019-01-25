@@ -1,16 +1,20 @@
-Advanced Systems Lab 2017 Project:
+# NoSQL Middleware - Advanced Systems Lab 2017 Project:
 
-The project consists of designing, developing and analyzing the performance of a middleware platform for key-value stores (or NoSQL databases). The middleware recieves requests from several clients (memtier instances) of type GET, SET or multi-GET. The requests are maintained in a queue until they are forwarded by one of the middleware's worker threads to one (or more) of the database servers. The middleware is responsible for replicating data between servers such that all database servers contain the same data in addition to handling load such that throughput and latency of requests is optimized.
+The project consists of *designing*, *developing* and *analyzing the performance of* a middleware platform for **key-value stores** (or NoSQL databases).
 
-Overview of files and folders:
+The middleware recieves requests from several clients (memtier instances) of type GET, SET or multi-GET. The requests are maintained in a queue until they are forwarded by one of the middleware's worker threads to one (or more) of the database servers. The middleware is responsible for replicating data between servers such that all database servers contain the same data in addition to handling load such that throughput and latency of requests is optimized.
+
+A detailed description of middleware specifications and experiments performed for system analysis can be found in /report/report.pdf, /report/project20.pdf and /report/report-outline60.pdf.
+
+## Overview of files and folders:
 
 - The folder /src/ contains the source Java code for the middleware.
 - The Java classes in src/ are:
-    - MyMiddleware.java: The middleware class
-    - NetHandler.java: Class which handles new client connections, parses and enqueuese requests
-    - Worker.java: Removes requests from the Request queue, processes them if needed, sends them to the server and responds to client.
-    - Request.java, SetRequests.java, GetRequest.java: Wrapper classes for each request type. Request.java is an abstract class which the other two extend.
-    - Statisticshandler.java: Created on shut-down, the StatisticsHandler gathers statistics from all workers and logs them to files.
+    - `MyMiddleware.java`: The middleware class
+    - `NetHandler.java`: Class which handles new client connections, parses and enqueues requests
+    - `Worker.java`: Removes requests from the Request queue, processes them if needed, sends them to the server and responds to client.
+    - `Request.java`, `SetRequests.java`, `GetRequest.java`: Wrapper classes for each request type. `Request.java` is an abstract class which the other two extend.
+    - `Statisticshandler.java`: Created on shut-down, the `StatisticsHandler` gathers statistics from all workers and logs them to files.
 
 - The full report is contained in report.pdf
 - The folder /report/Data/ contains the images used in the report as well as the data used to generate them. Each chapter of the report has its own subfolder containing its images and data.
